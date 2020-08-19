@@ -5,13 +5,17 @@ from geometry_msgs.msg import Point
 import sys
 import math
 
+# if __name__ == "__main__":
+    
+args = sys.argv
+# print(args[1])
+L = float(args[1])
+R = float(args[1])
+ds = 0.10
+
 rospy.init_node("curve_pub")
 pub = rospy.Publisher("visualization_marker",Marker,queue_size=10)
 rate = rospy.Rate(30)
-
-L = 5.0
-R = 10.0
-ds = 0.10
 
 while not rospy.is_shutdown():
     curve_data = Marker()
@@ -37,8 +41,8 @@ while not rospy.is_shutdown():
     dtheta = ds/R
     for i in range(n):
         p = Point()
-        p.x = - R + R*math.cos(n*dtheta)
-        p.y = - R + R*math.sin(n*dtheta)
+        p.x = - R + R*math.cos(i*dtheta)
+        p.y =  R*math.sin(i*dtheta)
         p.z = 0.0
         curve_data.points.append(p)
 

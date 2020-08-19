@@ -1,0 +1,3 @@
+[submodule "src/using_markers/scripts/kal_python"]
+	path = src/using_markers/scripts/kal_python
+	url = https://github.com/kokkia/kal_python.git
